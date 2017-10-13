@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="742.0" styleClass="mainPane" stylesheets="@view.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Main">
+   <children>
+      <Label alignment="CENTER" layoutX="292.0" layoutY="14.0" prefHeight="47.0" prefWidth="159.0" styleClass="heading-text" stylesheets="@view.css" text="Rational">
+         <font>
+            <Font name="Segoe UI" size="31.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="66.0" layoutY="91.0" prefHeight="34.0" prefWidth="108.0" styleClass="heading-text" stylesheets="@view.css" text="Rational 1">
+         <font>
+            <Font name="Segoe UI" size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="numerator1" labelFloat="true" layoutX="74.0" layoutY="152.0" prefHeight="23.0" prefWidth="90.0" promptText="Numerator">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </JFXTextField>
+      <Separator layoutX="51.0" layoutY="189.0" prefHeight="5.0" prefWidth="137.0">
+         <effect>
+            <Glow />
+         </effect>
+      </Separator>
+      <JFXTextField fx:id="denominator1" labelFloat="true" layoutX="74.0" layoutY="210.0" prefHeight="23.0" prefWidth="90.0" promptText="Denominator">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </JFXTextField>
+      <Separator layoutX="207.0" layoutY="91.0" orientation="VERTICAL" prefHeight="200.0" />
+      <Separator layoutX="514.0" layoutY="94.0" orientation="VERTICAL" prefHeight="200.0" />
+      <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="90.0" layoutY="380.0" onAction="#addBtn" prefHeight="53.0" prefWidth="131.0" ripplerFill="#fff5f5" styleClass="rational-button" text="Add" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="234.0" layoutY="380.0" onAction="#subtractBtn" prefHeight="53.0" prefWidth="131.0" ripplerFill="#fff5f5" styleClass="rational-button" text="Subtract" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="380.0" layoutY="380.0" onAction="#multiplyBtn" prefHeight="53.0" prefWidth="131.0" ripplerFill="#fff5f5" styleClass="rational-button" text="Multiply" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="521.0" layoutY="380.0" onAction="#divideBtn" prefHeight="53.0" prefWidth="131.0" ripplerFill="#fff5f5" styleClass="rational-button" text="Divide" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="257.0" layoutY="463.0" onAction="#equalityBtn" prefHeight="23.0" prefWidth="108.0" ripplerFill="#fff5f5" styleClass="minor-button" text="Check Equality" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="380.0" layoutY="463.0" onAction="#resetBtn" prefHeight="23.0" prefWidth="108.0" ripplerFill="#fff5f5" styleClass="minor-button" text="Reset" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="12.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="error" alignment="CENTER" contentDisplay="CENTER" layoutX="212.0" layoutY="286.0" prefHeight="16.0" prefWidth="318.0" text="Enter Rationals" textFill="#ad1457">
+         <font>
+            <Font name="Segoe UI" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="outputNumerator" alignment="CENTER" contentDisplay="CENTER" layoutX="329.0" layoutY="125.0" prefHeight="39.0" prefWidth="84.0">
+         <font>
+            <Font name="Monospaced Regular" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="outputDenominator" alignment="CENTER" contentDisplay="CENTER" layoutX="330.0" layoutY="177.0" prefHeight="39.0" prefWidth="84.0">
+         <font>
+            <Font name="Monospaced Regular" size="22.0" />
+         </font>
+      </Label>
+      <Separator layoutX="347.0" layoutY="173.0" prefHeight="5.0" prefWidth="48.0" />
+      <Label alignment="CENTER" layoutX="310.0" layoutY="91.0" prefHeight="34.0" prefWidth="108.0" styleClass="heading-text" stylesheets="@view.css" text="Result">
+         <font>
+            <Font name="Segoe UI" size="18.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="prevRational" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" disable="true" layoutX="528.0" layoutY="303.0" onAction="#prevRationalButton" prefHeight="5.0" prefWidth="64.0" ripplerFill="#fff5f5" style="-fx-background-color: #00e676;" styleClass="rational-button" text="&lt;" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="nextRational" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="600.0" layoutY="303.0" onAction="#nextRationalButton" prefHeight="5.0" prefWidth="64.0" ripplerFill="#fff5f5" style="-fx-background-color: #00e676;" styleClass="rational-button" text="&gt;" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="deleteRational" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" disable="true" layoutX="670.0" layoutY="303.0" onAction="#deleteRationalButton" prefHeight="5.0" prefWidth="64.0" ripplerFill="#fff5f5" style="-fx-background-color: #e53935;" styleClass="rational-button" text="X" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="16.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="multiRationalHeading" alignment="CENTER" layoutX="556.0" layoutY="105.0" prefHeight="34.0" prefWidth="108.0" styleClass="heading-text" stylesheets="@view.css" text="Rational 2">
+         <font>
+            <Font name="Segoe UI" size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="denominator2" labelFloat="true" layoutX="565.0" layoutY="210.0" prefHeight="23.0" prefWidth="90.0" promptText="Denominator">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="numerator2" labelFloat="true" layoutX="565.0" layoutY="160.0" prefHeight="23.0" prefWidth="90.0" promptText="Numerator">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </JFXTextField>
+      <Separator layoutX="552.0" layoutY="197.0" prefHeight="5.0" prefWidth="137.0">
+         <effect>
+            <Glow />
+         </effect>
+      </Separator>
+   </children>
+</AnchorPane>

@@ -1,0 +1,23 @@
+.mainPane {
+ -fx-fill: radial-gradient(focus-angle 45deg, focus-distance 20%, center 25% 25%, radius 50%, reflect, #eeeeee88, #55555588 75%, dimgray);
+  -fx-arc-width:25;
+  -fx-arc-height:25;
+
+
+}
+
+
+.rational-button {
+	-fx-background-color: #039be5;
+	-fx-font-size: 25px;
+}
+
+
+.minor-button {
+	-fx-background-color: #039be5;
+	-fx-font-size: 12px;
+}
+
+.heading-text {
+	-fx-text-fill: #03a9f4;
+}
