@@ -21,15 +21,16 @@ public class BubbleSort extends Sortable{
 	public void sort() {
 		// Consecutive values are compared and swapped if necessary
 		steps = 0;
+		steps++;
 		boolean swapped = true;
-		steps++;
+		
 		int lastSwap = nos.length - 1;
-
 		steps++;
+		
 		int temp = 0;
 		steps++;
+		
 		steps++; // initialize for loop
-
 		for (int i = 0; i < nos.length; i++) {
 			steps += 3; // boundary check, increment,if
 
