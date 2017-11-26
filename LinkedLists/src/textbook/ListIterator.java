@@ -1,11 +1,11 @@
 package textbook;
 
-public interface ListIterator {
+public interface ListIterator<E> {
 
 	Object next();
 	boolean hasNext();
-	void add(Object element);
+	void add(E element);
 	void remove();
-	void set(Object element);
+	void set(E element);
 	
 }
