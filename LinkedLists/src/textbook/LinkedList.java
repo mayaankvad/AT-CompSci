@@ -11,7 +11,7 @@ public class LinkedList<E> {
 		public Node next;
 	}
 
-	class LinkedListIterator implements ListIterator<E> {
+	private class LinkedListIterator implements ListIterator<E> {
 		private Node position;
 		private Node previous;
 		private boolean isAfterNext;
@@ -57,6 +57,7 @@ public class LinkedList<E> {
 				position.next = newNode;
 				position = newNode;
 			}
+			previous = position;
 			isAfterNext = false;
 		}
 
@@ -96,6 +97,24 @@ public class LinkedList<E> {
 		first = null;
 	}
 
+	public void reverse() {
+		if (first == null)
+			return;
+		Node previous = first;
+		Node current = first.next;
+		first.next = null;
+
+		while (current != null) {
+			Node next = current.next;
+			current.next = previous;
+			previous = current;
+			current = next;
+		}
+
+		first = previous;
+
+	}
+
 	public E get(int index) {
 		ListIterator<E> iter = listIterator();
 		int count = 0;
@@ -106,7 +125,6 @@ public class LinkedList<E> {
 			if (count == index) {
 				return element;
 			}
-			iter.next();
 			count++;
 		}
 		return null;
@@ -225,6 +243,7 @@ public class LinkedList<E> {
 
 				return ret;
 			}
+			iter.next();
 			count++;
 		}
 		return null;
