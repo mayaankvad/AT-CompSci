@@ -1,6 +1,5 @@
 package worksheet2;
 
-import java.util.*;
 import static java.lang.System.*;
 
 public class ListFunHouseRunner {

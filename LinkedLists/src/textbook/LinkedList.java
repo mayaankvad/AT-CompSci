@@ -11,7 +11,7 @@ public class LinkedList<E> {
 		public Node next;
 	}
 
-	private class LinkedListIterator implements ListIterator<E> {
+	public class LinkedListIterator implements ListIterator<E> {
 		private Node position;
 		private Node previous;
 		private boolean isAfterNext;

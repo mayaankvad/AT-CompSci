@@ -1,5 +1,6 @@
 package polynomialProject;
 
+@SuppressWarnings("unused")
 public class TermTester {
 	public static void main(String[] args) throws Exception {
 		Term p = new Term(3, 5);

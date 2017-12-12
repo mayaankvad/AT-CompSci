@@ -2,8 +2,8 @@ package worksheet2;
 
 public interface Linkable
 {
-   Comparable getValue();
+   Comparable<?> getValue();
    Linkable getNext();
    void setNext(Linkable next);
-   void setValue(Comparable value);
+   void setValue(Comparable<?> value);
 }

@@ -1,7 +1,5 @@
 package worksheet2;
 
-import static java.lang.System.*;
-
 public class ListFunHouse {
 
 	// this method will print the entire list on the screen

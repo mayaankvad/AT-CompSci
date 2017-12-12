@@ -1,8 +1,9 @@
 package worksheet2;
 
+@SuppressWarnings({"unchecked", "rawtypes"})
 public class ListNode implements Linkable
 {
-	private Comparable listNodeValue;
+	private Comparable<?> listNodeValue;
 	private ListNode nextListNode;
 
 	public ListNode()
