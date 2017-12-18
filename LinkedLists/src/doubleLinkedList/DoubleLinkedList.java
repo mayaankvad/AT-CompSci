@@ -79,7 +79,7 @@ public class DoubleLinkedList<E> {
 		public void add(E element) {
 			
 			DoubleListNode node;
-			System.err.println(current==null);
+			
 			if(current == null) {
 				node = new DoubleListNode(element, null, current);
 			} else {
@@ -148,14 +148,14 @@ public class DoubleLinkedList<E> {
 	public Object removeFirst() {
 		DoubleListNode temp = first;
 		first = first.next;
-		return temp;
+		return temp.value;
 	}
 
 	public Object removeLast() {
 		DoubleListNode temp = last;
 		last.previous.next = null;
 		last = last.previous;
-		return temp;
+		return temp.value;
 	}
 
 	public int size() {
