@@ -26,7 +26,8 @@ public class HistoList {
 		while (search != null) {
 			if (search.getLetter() == let) {
 				found = true;
-				search.setLetterCount(search.getLetterCount() + 1); // if node exists increment count
+				// if node exists increment count
+				search.setLetterCount(search.getLetterCount() + 1);
 			}
 			search = search.getNext();
 		}
@@ -36,6 +37,35 @@ public class HistoList {
 			front = new HistoNode(let, 1, front);
 		}
 
+	}
+
+	// removeLetter will remove a letter node or decrease the count
+	public void removeLetter(char let) {
+		HistoNode search = front;
+		HistoNode before = null;
+
+		// search for node with let
+		while (search != null) {
+			if (search.getLetter() == let) {
+
+				int count = search.getLetterCount();
+				if (count > 1) {
+					search.setLetterCount(count - 1); // decrease count cause
+														// there's more then one
+				}
+				// remove cause there is only 1
+				else {
+
+					before.setNext(search.getNext());
+
+				}
+
+				return;
+
+			}
+			before = search;
+			search = search.getNext();
+		}
 	}
 
 	// returns the index pos of let in the list if let exists
@@ -72,9 +102,9 @@ public class HistoList {
 
 	// returns a string will all values from list
 	public String toString() {
-		
+
 		sort();
-		
+
 		HistoNode search = front;
 		String output = "[ ";
 
@@ -86,31 +116,25 @@ public class HistoList {
 		return output + "]";
 	}
 
-	// sorts alphabetically 
+	// sorts alphabetically
 	public void sort() {
-		
+
 		TreeMap<Character, Integer> map = new TreeMap<Character, Integer>();
-		
+
 		HistoNode n = front;
-		while(n != null) {
+		while (n != null) {
 			map.put(n.getLetter(), n.getLetterCount());
 			n = n.getNext();
 		}
-		
+
 		front = null;
-		
-		for(int i = map.size()-1; i >= 0; i--) {
+
+		for (int i = map.size() - 1; i >= 0; i--) {
 			Character ch = (Character) map.keySet().toArray()[i];
 			Integer in = map.get(ch);
 			front = new HistoNode(ch, in, front);
 		}
-		
-		
+
 	}
-	
-	
-	
+
 }
-
-
-
