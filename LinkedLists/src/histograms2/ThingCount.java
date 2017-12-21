@@ -38,19 +38,13 @@ public class ThingCount implements Comparable
 	public boolean equals(Object obj)
 	{
 		ThingCount other = (ThingCount)obj;
-		
-		
-		
-		return other.thing.equals(this.thing);
+		return thing.equals(other.getThing()) && count == other.getCount();
 	}
 	
 	public int compareTo(Object obj)
 	{
 		ThingCount other = (ThingCount)obj;
-		
-		
-		
-		return ((ThingCount) other.thing).compareTo(this.thing);
+		return count-other.getCount();
 	}
 	
 	public String toString()

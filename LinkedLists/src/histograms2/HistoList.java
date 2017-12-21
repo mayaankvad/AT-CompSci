@@ -5,8 +5,9 @@ public class HistoList
 {
 	private ListNode front;
 
-	public HistoList( )
+	public HistoList()
 	{
+		front = null;
 	}
 
 
@@ -14,13 +15,51 @@ public class HistoList
 	//IF IT EXISTS, IT BUMPS UP LET'S COUNT BY ONE
 	public void add(Object obj)
 	{
+
+		// if list is empty add node
+		if (front == null) {
+			//front = new ListNode(let, 1, null);
+			front = new ListNode(new ThingCount(obj, 1), null);
+			return;
+		}
+
+		boolean found = false;
+		ListNode search = front;
+
+		// search for node with let
+		while (search != null) {
+			if (((ThingCount) search.getValue()).getThing().equals(obj)) {
+				found = true;
+				// if node exists increment count
+				((ThingCount) search.getValue()).setCount(((ThingCount) search.getValue()).getCount() +1);
+			}
+			search = search.getNext();
+		}
+
+		// if node not exists add new node
+		if (!found) {
+			front = new ListNode(new ThingCount(obj, 1), front);
+		}
 	}
 
 	//RETURNS THE INDEX POSITION OF LET IN THE LIST
 	public int indexOf(Object obj)
 	{
 		int spot=-1;
-		return -1;
+		
+		ListNode n = front;
+		while(n != null) {
+			spot++;
+			
+			if(n.getValue().equals(obj)) {
+				return spot;
+			}
+			
+			n = n.getNext();
+			
+		}
+		
+		return spot;
 	}
 
 	//RETURNS A REFERENCE TO THE NODE AT SPOT
@@ -47,7 +86,7 @@ public class HistoList
 		ListNode n = front;
 		while(n != null) {
 			output += front.getValue();
-			front = front.getNext();
+			n = n.getNext();
 		}
 		
 		return output;
