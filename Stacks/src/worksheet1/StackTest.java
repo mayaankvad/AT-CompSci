@@ -1,7 +1,6 @@
 package worksheet1;
 
 import java.util.Stack;
-import static java.lang.System.*;
 
 public class StackTest
 {
