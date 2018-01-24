@@ -1,5 +1,6 @@
 package histograms2;
 
+
 public class ThingCountRunner
 {
 	public static void main(String[] args)

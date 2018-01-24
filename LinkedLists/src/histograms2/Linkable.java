@@ -1,9 +1,9 @@
 package histograms2;
 
-
+@SuppressWarnings("rawtypes")
 public interface Linkable
 {
-   Comparable getValue();
+	Comparable getValue();
    Linkable getNext();
    void setNext(Linkable next);
    void setValue(Comparable value);

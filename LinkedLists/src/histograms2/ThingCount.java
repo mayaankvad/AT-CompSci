@@ -1,5 +1,6 @@
 package histograms2;
 
+@SuppressWarnings("rawtypes")
 public class ThingCount implements Comparable
 {
 	private int count;

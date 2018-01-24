@@ -1,8 +1,5 @@
 package histograms2;
 
-
-import static java.lang.System.*;
-
 public class HistogramList2Runner
 {
 	public static void main(String[] args)

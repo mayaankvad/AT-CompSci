@@ -1,7 +1,5 @@
 package histograms;
 
-import java.util.*;
-
 
 public class HistoListRunner
 {

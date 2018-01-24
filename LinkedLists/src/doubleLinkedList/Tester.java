@@ -33,7 +33,7 @@ public class Tester {
 		System.out.println("list:");
 		System.out.println(list);
 
-		ListIterator ite = list.iterator();
+		ListIterator<String> ite = list.iterator();
 		ite.next();
 		
 		System.out.println("adding to middle and replacing:");

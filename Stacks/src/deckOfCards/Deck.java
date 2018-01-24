@@ -17,7 +17,7 @@ public class Deck {
 	// Load the stack with 52 cards in order
 	public void loadDeck() {
 		for (int suit = 1; suit <= 4; suit++) {
-			for (int value = 1; value <= 14; value++) {
+			for (int value = 2; value <= 14; value++) {
 				deck.push(new Card(suit, value));
 			}
 		}
@@ -28,73 +28,77 @@ public class Deck {
 	// in each row from left to right
 	public String toString() {
 		String res = "";
-		
+
 		int i = 0;
-		for(Card c: deck) {
-			res += c + ", ";
+		for (Card c : deck) {
+			res += c + ", \t";
 			i++;
-			
-			if(i == 3) {
+
+			if (i == 3) {
 				res += "\n";
 				i = 0;
 			}
 		}
-		
-		
+
 		return res + "\n";
-		//System.out.println(deck);return null;
+		// System.out.println(deck);return null;
 	}
 
 	// Return and remove the top card
 	public Card deal() {
-		
+
 		return deck.pop();
-		
+
 	}
 
 	// Take the top half of the deck (26 cards) and alternate card by card with
 	// the bottom half
 	public void bridgeShuffle() {
-		
-		Stack<Card> top = new Stack<Card>();
-		Stack<Card> bottom = new Stack<Card>();
+
 		int mid = deck.size() / 2;
-		
-		// split stack
-		for(int i = 0; i <= mid; i++) {
+
+		Stack<Card> top = new Stack<Card>();
+		for (int i = 0; i < mid; i++) {
 			top.push(deck.pop());
 		}
-		while(!deck.isEmpty()) {
-			bottom.push(deck.pop());
-		}
 		top = reverse(top);
-		bottom = reverse(bottom);
-		
-		// add cards
-		while(deck.size() != (mid *2) ) {
-			
-			if(!top.isEmpty()) {
-				deck.push(top.pop());
-			}
-			if(!bottom.isEmpty()) {
-				deck.push(bottom.pop());
-			}
+
+		Stack<Card> res = new Stack<Card>();
+
+		while (!top.isEmpty()) {
+			res.push(top.pop());
+			res.push(deck.pop());
 		}
-		
-		
+
+		deck = reverse(res);
 	}
 
-	// Split the deck at a random spot. Put the stack of cards above the random
-	// spot below the other cards
+	// Split the deck at a random split. Put the stack of cards above the random
+	// split below the other cards
 	public void cut() {
-		int rand = new java.util.Random().nextInt(this.deck.size() -1);
+		int split = new java.util.Random().nextInt(this.deck.size() - 1);
+
+		Stack<Card> res = new Stack<Card>();
 		
-		// lazy
+		for (int i = 0; i < split; i++) {
+			res.push(deck.pop());
+		}
+		res = reverse(res);
 		
+		deck = reverse(deck);
+		while (!deck.isEmpty()) {
+			res.push(deck.pop());
+		}
+		
+		deck = res;
 	}
 
 	// Complete a bridge shuffle and then cut the deck. Repeat 7 times
 	public void completeShuffle() {
+		for (int i = 0; i < 7; i++) {
+			bridgeShuffle();
+			cut();
+		}
 	}
 
 	// Reverse the order of the cards in the deck
@@ -105,10 +109,10 @@ public class Deck {
 	// Given a Stack of cards as an explicit parameter,
 	// reverse the order of the cards in the deck
 	private Stack<Card> reverse(Stack<Card> x) {
-		
+
 		Stack<Card> rev = new Stack<Card>();
-		
-		while(!x.isEmpty()) {
+
+		while (!x.isEmpty()) {
 			rev.push(x.pop());
 		}
 		return rev;
@@ -117,26 +121,9 @@ public class Deck {
 	// Combine two decks, one as the implicit
 	// parameter, the other as the explicit parameter
 	public void combineDecks(Stack<Card> other) {
-		while(!other.isEmpty()) {
+		while (!other.isEmpty()) {
 			deck.push(other.pop());
 		}
 	}
 
-	public static void main(String[] args) {
-		// example method calls - you should make your own
-
-		Deck a = new Deck();
-		System.out.println(a.getDeck());
-		System.out.println(a);
-		a.bridgeShuffle();
-		System.out.println(a);
-		a.cut();
-		a.completeShuffle();
-
-		System.out.println("After 1 bridge shuffle");
-		System.out.println(a);
-		a.reverse();
-		for (int i = 1; i <= 5; i++)
-			System.out.println(a.deal());
-	}
 }

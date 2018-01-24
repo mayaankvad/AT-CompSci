@@ -1,6 +1,6 @@
 package histograms2;
 
-
+@SuppressWarnings("rawtypes")
 public class ListNode implements Linkable
 {
 	private Comparable listNodeValue;

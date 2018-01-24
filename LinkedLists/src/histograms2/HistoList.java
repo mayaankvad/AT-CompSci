@@ -1,6 +1,6 @@
 package histograms2;
 
-
+@SuppressWarnings("unused")
 public class HistoList
 {
 	private ListNode front;
