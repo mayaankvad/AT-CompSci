@@ -31,10 +31,10 @@ public class Deck {
 
 		int i = 0;
 		for (Card c : deck) {
-			res += c + ", \t";
+			res += c + " \t";
 			i++;
 
-			if (i == 3) {
+			if (i == 4) {
 				res += "\n";
 				i = 0;
 			}

@@ -4,7 +4,9 @@ public class Tester {
 
 	public static void main(String[] args) {
 		test();
-
+//Stack x = new Stack();
+//x.push(1);x.push(2);x.push(3);
+//System.out.println(x);
 	}
 
 	static void test() {
