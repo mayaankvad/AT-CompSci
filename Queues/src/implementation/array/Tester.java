@@ -2,6 +2,7 @@ package implementation.array;
 
 public class Tester {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		ArrayQueue queue = new ArrayQueue();
 		for (int k = 1; k <= 5; k++)

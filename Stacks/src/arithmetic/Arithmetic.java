@@ -9,7 +9,7 @@ public class Arithmetic {
 
 	private Stack<Double> numbers;
 	private Stack<String> operators;
-	
+
 	private static HashMap<String, Integer> map;
 
 	static {
@@ -20,65 +20,64 @@ public class Arithmetic {
 		map.put("/", 1);
 		map.put("^", 2);
 	}
-	
+
 	public Arithmetic(String exp) {
 		this.exp = exp;
 		this.numbers = new Stack<Double>();
 		this.operators = new Stack<String>();
 	}
 
-	
 	public double solve() {
-		
+
 		exp = exp.replace(" ", "");
-		
-		for(String s: this.exp.split("")) {
-			
-			if(isNumber(s)) {
+
+		for (String s : this.exp.split("")) {
+
+			if (isNumber(s)) {
 				this.numbers.push(Double.valueOf(s));
 			}
-			
-			else if(isOpen(s)) {
+
+			else if (isOpen(s)) {
 				this.operators.push(s);
 			}
-			
-			else if(isOperator(s)) {
-				
-				if(!this.operators.isEmpty()) {
-					
-					while(!this.operators.isEmpty() && hasHigherPrecedence(this.operators.peek(), s)) {
-						evalTop();
+
+			else if (isOperator(s)) {
+
+				if (!this.operators.isEmpty()) {
+
+					try {
+						while (!this.operators.isEmpty() && hasHigherPrecedence(this.operators.peek(), s)) {
+							evalTop();
+						}
+					} catch (Exception e) {
+
 					}
+
 				}
-				
+
 				this.operators.push(s);
-				
 			}
-			
+
 			else if (isClose(s)) {
-				
-				while(!this.operators.peek().equals("(")) {
+				while (!this.operators.peek().equals("(")) {
 					evalTop();
 				}
 				this.operators.pop();
 			}
-			
+
 		}
-		
-		while(!this.operators.isEmpty()) {
+
+		while (!this.operators.isEmpty()) {
 			evalTop();
 		}
-		
+
 		return this.numbers.peek();
-		
 	}
-	
+
 	public void evalTop() {
-		
 		Double n1 = this.numbers.pop();
 		Double n2 = this.numbers.pop();
-		//System.err.println(n1 + " " + n2);
-
+		
 		Double res = 0.0;
 		switch (this.operators.pop()) {
 		case "+":
@@ -109,25 +108,14 @@ public class Arithmetic {
 			return false;
 		}
 	}
-	
+
 	public static boolean isOperator(String s) {
 		return s.matches("\\+|\\-|\\/|\\*|\\^");
 	}
-	
-	
+
 	public boolean hasHigherPrecedence(String a, String b) {
-		
 		return map.get(a) > map.get(b);
-		
-		
-		/*
-		if(a.matches("\\*|\\/") && b.matches("\\+|\\-")) {
-			return true;
-		}
-		return false;
-		*/
 	}
-	
 
 	public static boolean isParenthesis(String x) {
 		return x.matches("\\(|\\)");
