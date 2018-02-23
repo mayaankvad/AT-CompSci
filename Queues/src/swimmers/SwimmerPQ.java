@@ -33,8 +33,7 @@ public class SwimmerPQ
 	
 	public String getNaturalOrder()
 	{
-		String output="";
-		return output;		
+		return this.toString();	
 	}
 
 	//write a toString method

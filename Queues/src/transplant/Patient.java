@@ -16,7 +16,7 @@ public class Patient implements Comparable<Patient> {
 		if(this.priority == o.priority) {
 			return 0;
 		}
-		if(o.priority > this.priority) {
+		if(o.priority < this.priority) {
 			return -1;
 		}
 		return 1;

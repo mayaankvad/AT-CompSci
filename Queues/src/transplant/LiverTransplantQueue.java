@@ -1,5 +1,6 @@
 package transplant;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
@@ -18,32 +19,21 @@ public class LiverTransplantQueue {
 	
 	public void add(Patient o) {
 		
-		if(this.isEmpty()) {
-			this.queue.add(o);
-			return;
-		}
+//		if(this.isEmpty()) {
+//			this.queue.add(o);
+//			return;
+//		}
 //		
 //		ListIterator<Patient> iter = this.queue.listIterator();
 //		
-//		while(iter.hasNext()) {
-//			
-//			Patient p = iter.next();
-//			
-//			if (o.compareTo(p) == 0) {
-//				this.queue.addFirst(o);
-//				return;
-//			}
-//			
-//			if(o.compareTo(p) == -1) {
-//				iter.previous();
-//				this.queue.add(o);
-//				
-//				return;
-//			}
-//			
-//			
+//		while( iter.hasNext() && o.compareTo(iter.next()) == -1 ) {
+//
 //			
 //		}
+//		iter.add(o);
+		
+		queue.add(o);
+		Collections.sort(this.queue);
 		
 	}
 	
