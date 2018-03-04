@@ -11,6 +11,7 @@ public class PQTester {
 	}
 
 	public PQTester(String list) {
+		this.pQueue = new PriorityQueue<String>();
 		
 		for(String s: list.split(" ")) {
 			this.pQueue.add(s);

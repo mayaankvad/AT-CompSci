@@ -1,75 +1,93 @@
 package transplant;
 
-import java.util.ArrayList;
-
+import java.util.Arrays;
 
 public class LiverTransplantQueue {
-
 	
-	private ArrayList<Patient> heap;
 	private int size;
+	private Patient[] minHeap;
 	
 	public LiverTransplantQueue() {
-		this.heap = new ArrayList<Patient>(90);
-	}
-	
-	public boolean isEmpty() {
-		return this.heap.isEmpty();
-	}
-	
-	public void add(Patient o) {
-		
-		
-		size++;
-		heap.add(o);
-
-		this.heapify(0);
-		
-	}
-	
-	public Patient peek() {
-		return this.heap.get(0);
-	}
-	
-	public Patient poll() {
-		Patient temp = this.heap.get(0);
-		size--;
-
-		//System.out.println(size);
-		this.heap.set(0, this.heap.remove(size));
-		
-		
-		
-		heapify(0);
-		
-		return temp;
+		this.minHeap = new Patient[20];
+		this.minHeap[0] = new Patient(null, -100000);
 	}
 	
 	public int size() {
-		return this.size;
+		return size;
 	}
 	
-	public String toString() {
-		return this.heap.toString();
+	public int parent(int child) {
+		return child/2;
+	}
+	
+	public void swap(int pos1, int pos2) {
+		Patient temp = minHeap[pos1];
+		minHeap[pos1] = minHeap[pos2];
+		minHeap[pos2] = temp;
+	}
+	
+	public int leftChild(int parent) {
+		return parent * 2;
+	}
+	
+	public int rightChild(int parent) {
+		return parent * 2 + 1;
+	}
+	
+	public void add(Patient p) {
+		
+		size++;
+		minHeap[size] = p;
+		int current = size;
+		
+		while(minHeap[current] .compareTo( minHeap[parent(current)] ) == -1 ) {
+			swap(current, parent(current));
+			current = parent(current);
+		}
+
+		
 	}
 	
 	
-	public void swap(int a, int b) {
-		Patient temp = this.heap.get(a);
-		this.heap.set(a, this.heap.get(b));
-		this.heap.set(b, temp);
+	public Patient poll() {
+		Patient temp = minHeap[1];
+		
+		
+		minHeap[1] = minHeap[size];
+		minHeap[size] = null;
+		size--;
+
+		heapify(1);
+		
+		return temp;
+
 	}
+	
+	
+	public boolean isLeaf(int n) {
+		return leftChild(n) < size;
+	}
+	
 	
 	public void heapify(int n) {
-		if(size() > 1){
-			int min = 0;
-			for (int i = 1; i < heap.size(); i++) {
-				if (heap.get(i).compareTo( heap.get(min)) < 0)
-					min = i;
+		if(leftChild(n) < size) {
+			
+			int lesserChild = (minHeap[leftChild(n)] .compareTo( minHeap[rightChild(n)] ) == -1) ? leftChild(n): rightChild(n);
+			
+			if(minHeap[n] .compareTo( minHeap[lesserChild] ) == 1) {
+				swap(n, lesserChild);
+				heapify(lesserChild);
 			}
-			heap.add(0, heap.remove(min));
+			
+			
 		}
 	}
+	
+	
+	public String toString() {
+		return Arrays.toString(this.minHeap);
+	}
+	
 	
 	
 }

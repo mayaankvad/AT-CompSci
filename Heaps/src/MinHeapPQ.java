@@ -8,7 +8,6 @@ public class MinHeapPQ {
 	public MinHeapPQ() {
 		this.minHeap = new int[20];
 		this.minHeap[0] = -1000000;
-		
 	}
 	
 	
@@ -53,6 +52,7 @@ public class MinHeapPQ {
 		minHeap[size] = 0;
 		size--;
 
+		heapify(1);
 		
 		return temp;
 
@@ -67,7 +67,13 @@ public class MinHeapPQ {
 	public void heapify(int n) {
 		if(leftChild(n) < size) {
 			
-			//if(minHeap[leftChild(n)])
+			int lesserChild = (minHeap[leftChild(n)] < minHeap[rightChild(n)]) ? leftChild(n): rightChild(n);
+			
+			if(minHeap[n] > minHeap[lesserChild]) {
+				swap(n, lesserChild);
+				heapify(lesserChild);
+			}
+			
 			
 		}
 	}
@@ -86,12 +92,12 @@ public class MinHeapPQ {
 		one.insert(5);
 		one.insert(9);
 		one.insert(12);
-		one.insert(1);
+		
 
 		
 		System.out.println(Arrays.toString(one.minHeap));
 		one.remove();
-		
+
 		System.out.println(Arrays.toString(one.minHeap));
 		
 	}
