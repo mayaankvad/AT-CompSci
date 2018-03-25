@@ -35,5 +35,8 @@ public class SwimmerPQRunner {
 		System.out.println("removeMin() - " + test.removeMin());
 		System.out.println();
 		System.out.println(test);
+		
+		
+		keyboard.close();
 	}
 }

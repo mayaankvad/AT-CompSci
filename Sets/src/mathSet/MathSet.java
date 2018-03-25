@@ -18,7 +18,7 @@ public class MathSet {
 		for (String s : o.split(" ")) {
 			this.one.add(Integer.valueOf(s));
 		}
-
+		
 		for (String s : t.split(" ")) {
 			this.two.add(Integer.valueOf(s));
 		}
@@ -58,7 +58,7 @@ public class MathSet {
 				sym.add(i);
 			}
 		}
-
+		
 		for (Integer i : two) {
 			if (!one.contains(i)) {
 				sym.add(i);
