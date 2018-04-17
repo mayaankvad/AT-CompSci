@@ -21,6 +21,8 @@ public class Histogram
 	
 	public void setSentence(String sent)
 	{
+		this.histogram = new TreeMap<String, Integer>();
+		
 		Scanner scn = new Scanner(sent);
 		while(scn.hasNext()) {
 			String key = scn.next();
@@ -40,14 +42,15 @@ public class Histogram
 	{
 		String out = "---\n";
 		
+		out += "char   1---5----01--- 5 \n";
+		
 		for(Map.Entry<String, Integer> o: this.histogram.entrySet()) {
-			out += o.getKey() + " ";
+			out += o.getKey() + "      ";
 			for(int i = 1; i <= o.getValue(); i++) {
 				out += "*";
 			}
 			out += "\n";
 		}
-		
 		
 		return out;
 	}
