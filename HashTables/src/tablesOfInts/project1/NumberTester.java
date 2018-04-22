@@ -1,3 +1,4 @@
+package tablesOfInts.project1;
 
 public class NumberTester
 {
@@ -10,6 +11,6 @@ public class NumberTester
 		System.out.println(two.hashCode());
 		
 		Number three = new Number(213);
-		System.out.println(three.hashCode());				
+		System.out.println(three.hashCode());
 	}
 }

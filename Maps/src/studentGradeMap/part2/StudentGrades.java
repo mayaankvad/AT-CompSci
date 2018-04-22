@@ -47,7 +47,7 @@ public class StudentGrades {
 	public static void modifyStudent(Map<Student, String> gradeMap, Map<Integer, Student> idToStudentMap) {
 		
 		System.out.print("Enter id: ");
-		Integer id = scn.nextInt();
+		Integer id = Integer.valueOf(scn.nextLine());
 
 		if (!idToStudentMap.containsKey(id)) {
 			System.err.println(id + " not found");
@@ -80,7 +80,7 @@ public class StudentGrades {
 	 */
 	public static void removeStudent(Map<Student, String> gradeMap, Map<Integer, Student> idToStudentMap) {
 		System.out.print("Enter id: ");
-		Integer id = scn.nextInt();
+		Integer id = Integer.valueOf(scn.nextLine());
 
 		if (!idToStudentMap.containsKey(id)) {
 			System.err.println(id + " not found");
@@ -106,7 +106,7 @@ public class StudentGrades {
 	public static void addStudent(Map<Student, String> idToGradeMap, Map<Integer, Student> idToStudentMap) {
 
 		System.out.print("Enter id: ");
-		int id = scn.nextInt();
+		int id = Integer.valueOf(scn.nextLine());
 		System.out.print("Enter first name: ");
 		String first = scn.nextLine();
 		System.out.print("Enter last name: ");
