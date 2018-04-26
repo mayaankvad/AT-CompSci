@@ -1,6 +1,6 @@
 package studentGradeMap.part1;
 
-import java.util.HashMap;
+import java.util.TreeMap;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -116,7 +116,7 @@ public class StudentGrades {
 
 	public static void main(String[] args) {
 
-		HashMap<String, String> data = new HashMap<String, String>();
+		TreeMap<String, String> data = new TreeMap<String, String>();
 
 		for (;;) {
 			String s = printMenuAndGetChoice();
