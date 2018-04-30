@@ -2,6 +2,7 @@ package teamSet;
 
 import java.util.HashMap;
 
+@SuppressWarnings("unused")
 public class TeamMap {
 
 	private HashMap<Integer, TeamSet> data;
@@ -34,10 +35,29 @@ public class TeamMap {
 	}
 
 	public String toString() {
-		this.removeEmpty();
+		//this.removeEmpty();
+		this.showEmpty();
 		return this.data.toString();
 	}
 
+	/**
+	 * Adds empty groups from {min} to {max} if they 
+	 * do not exist. 
+	 */
+	private void showEmpty() {
+		final int min = 0;
+		final int max = 9;
+		
+		for(int i = min; i <= max; i++) {
+			if (!this.data.containsKey(i)) {
+				this.data.put(i, new TeamSet());
+			}
+		}
+	}
+	
+	/**
+	 * removes all groups that are either null or empty
+	 */
 	private void removeEmpty() {
 
 		java.util.HashSet<Integer> keys = new java.util.HashSet<Integer>();
