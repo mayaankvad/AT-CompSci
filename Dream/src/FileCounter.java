@@ -128,7 +128,7 @@ public class FileCounter {
 			System.out.println("[" + i + "]: " + names.get(i));
 
 		Scanner s = new Scanner(System.in);
-		System.out.println("~$ ");
+		System.out.print("~$ ");
 		int num = s.nextInt();
 	
 		return names.get(num);

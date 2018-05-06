@@ -8,8 +8,8 @@ public class RelativesRunner {
 
 	public static void main(String args[]) throws IOException {
 
-		final String absPath = System.getProperty("user.dir") + "\\src\\"
-				+ Thread.currentThread().getStackTrace()[1].getClassName().split("\\.")[0] + "\\" + "relatives.dat";
+		final String absPath = System.getProperty("user.dir").replace("\\", "/") + "/src/"
+				+ Thread.currentThread().getStackTrace()[1].getClassName().split("\\.")[0] + "/" + "relatives.dat";
 		Scanner fl = new Scanner(new File(absPath));
 		
 		Relatives relatives = new Relatives();
