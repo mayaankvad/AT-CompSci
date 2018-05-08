@@ -7,7 +7,7 @@ public class HashTableRunner {
 
 	public static void main(String[] args) {
 
-		final String absPath = System.getProperty("user.dir") + "\\src\\tablesOfInts\\project1\\" + "numbers.dat";
+		final String absPath = System.getProperty("user.dir").replace("\\", "/") + "/src/" +  "tablesOfInts/project1/" + "numbers.dat";
 		
 		try {
 			// make a new table

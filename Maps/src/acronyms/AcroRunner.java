@@ -9,7 +9,7 @@ public class AcroRunner
 	public static void main( String args[] ) throws IOException
 	{
 		
-		final String absPath = System.getProperty("user.dir") + "\\src\\acronyms\\" + "acro.dat";
+		final String absPath = System.getProperty("user.dir").replace("\\", "/") + "/src/" +  "acronyms/" + "acro.dat";
 		final Scanner fl = new Scanner(new File(absPath));
 		
 		Acronyms acro = new Acronyms();

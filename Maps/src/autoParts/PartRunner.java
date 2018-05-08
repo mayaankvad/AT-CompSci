@@ -8,7 +8,7 @@ public class PartRunner
 {
 	public static void main(String[] args)
 	{
-		final String absPath = System.getProperty("user.dir") + "\\src\\autoParts\\" + "partinfo.dat";
+		final String absPath = System.getProperty("user.dir").replace("\\", "/") + "/src/" +  "autoParts/" + "partinfo.dat";
 		
 		PartList prog = new PartList(absPath);
 		System.out.println(prog);

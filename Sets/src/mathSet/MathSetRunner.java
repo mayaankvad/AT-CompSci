@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class MathSetRunner {
 	public static void main(String args[]) throws IOException {
 
-		final String absPath = System.getProperty("user.dir") + "\\src\\mathSet\\" + "mathsetdata.dat";
+		final String absPath = System.getProperty("user.dir").replace("\\", "/") + "/src/" +  "mathSet/" + "mathsetdata.dat";
 		
 		// =======
 		System.out.println("********************************");

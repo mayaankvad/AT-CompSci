@@ -10,7 +10,7 @@ public class SpanRunner
 	{
 		SpanishToEnglish translator = new SpanishToEnglish();
 		
-		String absPath = System.getProperty("user.dir") + "\\src\\spanishToEnglish\\" + "spantoeng.dat";
+		String absPath = System.getProperty("user.dir").replace("\\", "/") + "/src/" +  "spanishToEnglish/" + "spantoeng.dat";
 		Scanner fl = new Scanner(new File(absPath));
 
 		int translations = fl.nextInt(); fl.nextLine();
