@@ -3,9 +3,9 @@ package phoneBook;
 public class PhoneEntry {
 
 	private String name;
-	private int number; 
+	private String number; 
 	
-	public PhoneEntry(String name, int number) {
+	public PhoneEntry(String name, String number) {
 		this.name = name;
 		this.number = number;
 	}
@@ -14,12 +14,24 @@ public class PhoneEntry {
 		return this.name;
 	}
 	
-	public int getNumber() {
+	public void setName(String n) {
+		this.name = n;
+	}
+	
+	public String getNumber() {
 		return this.number;
 	}
 	
+	public void setNumber(String n) {
+		this.number = n;
+	}
+	
+	public String toString() {
+		return this.name + ": " + this.number;
+	}
+	
 	public int hashCode() {
-		return this.number;
+		return Integer.valueOf(this.number.replaceAll("-| ", ""));
 	}
 	
 }
