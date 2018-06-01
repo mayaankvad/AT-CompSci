@@ -1,4 +1,3 @@
-
 import static java.lang.System.*;
 import java.util.LinkedList;
 
@@ -83,7 +82,7 @@ public class BinarySearchTree
 	}
 	
 	public int getNumLeaves(TreeNode tree) {
-		
+		return (tree.getLeft() != null ? 1: 0) + (tree.getRight() != null ? 1: 0);
 	}
 	
 	
