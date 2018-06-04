@@ -82,7 +82,8 @@ public class BinarySearchTree
 	}
 	
 	public int getNumLeaves(TreeNode tree) {
-		return (tree.getLeft() != null ? 1: 0) + (tree.getRight() != null ? 1: 0);
+		//return (tree.getLeft() != null ? 1: 0) + (tree.getRight() != null ? 1: 0);
+		return (tree.getLeft() != null ? 1: 0) + (tree.getRight() != null ? 1: 0) + getNumLeaves(tree.getLeft()) + getNumLeaves(tree.getRight());
 	}
 	
 	
@@ -105,7 +106,9 @@ public class BinarySearchTree
 		
 	}
 
-
+	private boolean isFull(TreeNode root) {
+		
+	}
 
 
 
@@ -136,7 +139,7 @@ public class BinarySearchTree
 
 	public String toString()
 	{
-		return "";
+		return toString(this.root);
 	}
 
 	private String toString(TreeNode tree)

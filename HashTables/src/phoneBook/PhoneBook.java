@@ -29,7 +29,7 @@ public class PhoneBook {
 	}
 
 	public void display() {
-		System.out.println(Arrays.toString(this.data));
+		System.out.println(this.toString());
 	}
 
 	public int getCapacity() {
@@ -39,11 +39,9 @@ public class PhoneBook {
 	public int size() {
 		int c = 0;
 		for (LinkedList<PhoneEntry> e : this.data) {
-			
-			if(e != null ) {
+			if (e != null) {
 				c += e.size();
 			}
-			
 		}
 		return c;
 	}
@@ -102,25 +100,21 @@ public class PhoneBook {
 	}
 
 	public void load(String filepath) {
-		try {	
+		try {
 			Scanner in = new Scanner(new File(filepath));
-			
-			while(in.hasNext()) {
+
+			while (in.hasNext()) {
 				this.add(new PhoneEntry(in.next(), in.next()));
-				
 			}
-			
+
 			in.close();
-			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-		} 
-		
+		}
 	}
-	
-	
+
 	public String toString() {
-		return Arrays.toString(this.data);
+		return "---\n" + Arrays.toString(this.data).replaceAll(",", "\n").replaceAll("\\[|\\]", "") + "\n---\n";
 	}
 
 }
