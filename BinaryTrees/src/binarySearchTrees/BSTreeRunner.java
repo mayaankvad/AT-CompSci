@@ -1,5 +1,4 @@
-
-import static java.lang.System.*;
+package binarySearchTrees;
 
 public class BSTreeRunner
 {

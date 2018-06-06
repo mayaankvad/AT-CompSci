@@ -1,4 +1,6 @@
+package binarySearchTrees;
 
+@SuppressWarnings("rawtypes") 
 public class TreeNode implements Treeable
 {
 	private Comparable treeNodeValue;

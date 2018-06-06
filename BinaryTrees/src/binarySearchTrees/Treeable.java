@@ -1,4 +1,6 @@
+package binarySearchTrees;
 
+@SuppressWarnings("rawtypes") 
 public interface Treeable
 {
 	public Object getValue();
