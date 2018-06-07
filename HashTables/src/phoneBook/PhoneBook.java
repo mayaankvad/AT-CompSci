@@ -29,7 +29,15 @@ public class PhoneBook {
 	}
 
 	public void display() {
-		System.out.println(this.toString());
+		System.out.println("Name \t Index \t Number");
+		System.out.println("-----------------------");
+		
+		for(LinkedList<PhoneEntry> li: this.data) {
+			for(PhoneEntry e: li) {
+				System.out.println(e.getName() + "\t" + (e.hashCode() % this.data.length) + "\t" + e.getNumber());
+			}
+		}
+		System.out.println("\n\n");
 	}
 
 	public int getCapacity() {

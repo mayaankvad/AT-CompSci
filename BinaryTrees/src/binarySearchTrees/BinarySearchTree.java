@@ -18,17 +18,21 @@ public class BinarySearchTree
 
 	private TreeNode add(Comparable val, TreeNode tree)
 	{
-	   if(tree == null)
+	   if(tree == null) {
 			tree = new TreeNode(val);
+			return tree;
+		}
 		
 		Comparable treeValue = tree.getValue();
 		int dirTest = val.compareTo(treeValue);
 		
 		
-		if(dirTest <= 0)
+		if(dirTest <= 0) {
 			tree.setLeft(add(val, tree.getLeft()));
-		else if(dirTest > 0)
-			tree.setRight(add(val, tree.getRight()));
+		}
+		else if(dirTest > 0) {
+			tree.setRight(add(val, tree.getRight())); 
+		}
 		
 		return tree;
 	}
@@ -91,7 +95,7 @@ public class BinarySearchTree
 		if (tree != null) {
 //			System.out.print(tree.getValue() + ", ");
 			revOrder(tree.getRight());
-			System.out.print(tree.getValue() + " ");
+			System.out.print(tree.getValue() + ", ");
 			revOrder(tree.getLeft());
 		}
 	}
@@ -147,7 +151,7 @@ public class BinarySearchTree
 		if(tree == null) {
 			return 0;
 		}
-		else if(getHeight(tree.getLeft()) > getHeight(tree.getRight())) {
+		if(getHeight(tree.getLeft()) > getHeight(tree.getRight())) {
 			return 1 + getHeight(tree.getLeft());
 		}
 		return 1 + getHeight(tree.getRight());
@@ -268,8 +272,9 @@ public class BinarySearchTree
 	public void levelOrder() {
 		int h = getHeight(this.root);
 		int i;
-		for (i = 1; i <= h; i++)
+		for (i = 1; i <= h; i++) {
 			levelOrder(root, i);
+		}
 	}
 
 	private void levelOrder(TreeNode root, int level) {

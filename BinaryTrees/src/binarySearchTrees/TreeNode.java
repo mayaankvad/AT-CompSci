@@ -7,7 +7,7 @@ public class TreeNode implements Treeable
 	private TreeNode leftTreeNode;
 	private TreeNode rightTreeNode;
 
-	public TreeNode( )
+	public TreeNode()
 	{
 		treeNodeValue = null;
 		leftTreeNode = null;
