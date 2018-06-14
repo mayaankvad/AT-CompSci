@@ -201,7 +201,7 @@ public class BinarySearchTree
 	//maxNode
 	
 	//task 2
-	public Comparable getMax(){
+	public Comparable getLargest(){
 		return this.getMax(root, root).getValue();
 	}
 	
@@ -233,7 +233,7 @@ public class BinarySearchTree
 	//minNode
 	
 	//task 2
-	public Comparable getMin(){
+	public Comparable getSmallest(){
 		return this.getMin(root, root).getValue();
 	}
 	
@@ -241,16 +241,16 @@ public class BinarySearchTree
         if (tree != null) {
         	
         	//set min from two childs of tree
-            if (tree.getLeft() != null && tree.getLeft().getValue().compareTo(min.getValue()) > 0) {
+            if (tree.getLeft() != null && tree.getLeft().getValue().compareTo(min.getValue()) < 0) {
                 min = tree.getLeft();
             }
             
-            if (tree.getRight() != null && tree.getRight().getValue().compareTo(min.getValue()) > 0) {
+            if (tree.getRight() != null && tree.getRight().getValue().compareTo(min.getValue()) < 0) {
                 min = tree.getRight();
             }
             
             // find min of child tree left if left is smaller
-            if (getMin(tree.getLeft(), min).getValue().compareTo(getMin(tree.getRight(), min).getValue()) > 0) {
+            if (getMin(tree.getLeft(), min).getValue().compareTo(getMin(tree.getRight(), min).getValue()) < 0) {
                 return getMin(tree.getLeft(), min);
             }
             
@@ -315,8 +315,9 @@ public class BinarySearchTree
 				tree.setRight(remove(x, tree.getRight()));
 			}
 			else {
-				if (tree.getRight() == null)
+				if (tree.getRight() == null) {
 					tree = tree.getLeft();
+				}
 				else {
 					TreeNode s = getMinAsNode(tree.getRight());
 					tree.setValue(s.getValue());
